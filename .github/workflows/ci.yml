@@ -1,0 +1,40 @@
+name: Continuous Integration
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-hello:
+    name: Test hello
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hello
+    steps:
+    - uses: actions/checkout@v3
+    - run: npm version
+    - run: npm install
+    - run: npm run all
+    - uses: ./hello
+      with:
+        hello-greeting: Good morning
+        receiver: Universe
+        
+  test-goodbye:
+    name: Test goodbye
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: goodbye
+    steps:
+    - uses: actions/checkout@v3
+    - run: npm version
+    - run: npm install
+    - run: npm run all
+    - uses: ./goodbye
+      with:
+        goodbye-greeting: Goodbye
+        receiver: Universe
