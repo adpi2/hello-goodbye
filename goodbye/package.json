@@ -1,0 +1,37 @@
+{
+  "name": "goodbye",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Say goodbye",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "all": "npm run build && npm run format && npm run lint && npm run package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adpi2/hello-goodbye.git"
+  },
+  "keywords": [
+    "goodbye",
+    "github",
+    "action"
+  ],
+  "author": "adpi2",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@actions/core": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.30",
+    "@vercel/ncc": "^0.34.0",
+    "eslint-plugin-github": "^4.3.6",
+    "js-yaml": "^4.1.0",
+    "prettier": "2.5.1",
+    "typescript": "^4.7.4"
+  }
+}

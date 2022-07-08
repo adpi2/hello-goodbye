@@ -1,0 +1,18 @@
+name: adpi2 hello action
+description: A simple action to say hello
+author: adpi2
+branding:
+  icon: heart
+  color: red
+inputs:
+  hello-greeting:
+    description: Your custom greeting to say hello
+    required: false
+    default: Hello
+  receiver:
+    description: The receiver of your greeting
+    required: false
+    default: World
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
